@@ -1,0 +1,13 @@
+.featuredCreatorCard {
+	cursor: pointer;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+}
+
+.featuredCreatorCard:hover,
+.featuredCreatorCard:focus {
+    background-color: var(--color-black);
+    color: red;
+}

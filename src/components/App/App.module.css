@@ -1,0 +1,37 @@
+.app * { box-sizing: border-box }
+
+.app {
+  font-family: var(--font-family);
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: var(--base-font-size);
+}
+
+.app a, 
+.app a:visited {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.appMain {
+  width: 100%;
+  color: var(--color-white);
+  background-color: var(--color-black);  
+}
+
+@media screen and (min-width: 1024px) {
+  .appMain {
+    position: absolute;
+    top: 70px;
+    bottom: 60px;
+    left: 0;
+    overflow: auto;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .appMain {
+    top: 70px;
+    bottom: 40px;
+  }
+}

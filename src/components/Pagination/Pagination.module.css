@@ -1,0 +1,16 @@
+.paginationContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  margin: 0 0 2rem;
+  gap: 1rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 1024px) {
+  .paginationContainer {
+    flex-direction: row;
+    align-items: center;
+  }
+}

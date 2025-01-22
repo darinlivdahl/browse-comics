@@ -1,0 +1,50 @@
+.resultsSection {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+  
+.resultsContainer {
+    display: grid;
+}
+
+.noResults {
+    margin-bottom: 1rem;
+}
+    
+@media screen and (min-width: 768px) {
+    /* 2 cards */
+    .resultsContainer {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        column-gap: 2rem;
+    
+    }
+}
+
+@media screen and (min-width: 1028px) {
+    /* 3 cards */
+    .resultsContainer {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    /* 4 cards */
+    .resultsContainer {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media screen and (min-width: 1536px) {
+
+    .resultsContainer {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .resultsContainer {
+        grid-template-columns: repeat(7, 1fr);
+    }
+}

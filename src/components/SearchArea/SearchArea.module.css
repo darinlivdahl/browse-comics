@@ -1,0 +1,82 @@
+.searchAreaContainer {
+    width: 100%;
+    display: flex;
+    color: var(--color-white);
+    background-color: var(--color-dark);
+    background-image: var(--bg-img);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+}
+
+.searchAreaInner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+}
+
+.searchAreaForm {
+    width: 100%;
+}
+
+.searchAreafieldSet {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+}
+
+.searchAreaFieldSetLegend {
+    padding-top: .5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.featuredCreatorsList {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: .5rem;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+@media screen and (min-width: 1024px) {
+    .searchAreaContainer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 100;
+        justify-content: center;
+        align-items: center;
+    }
+    .searchAreaInner {
+        padding: 3rem;
+        border-radius: var(--border-radius);
+        align-items: center;
+        width: auto;
+    }
+
+    .searchAreaForm {
+        width: auto;
+    }
+
+    .searchAreafieldSet {
+        flex-direction: row;
+        align-items: end;
+        max-width: 600px;
+    }
+
+    .searchAreaFieldSetLegend {
+        text-align: center;
+    }
+
+    .featuredCreatorsList {
+        flex-direction: row;
+        gap: 1rem;
+    }
+}

@@ -1,0 +1,20 @@
+.messageError {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var(--color-danger);
+    color: var(--color-white);
+    padding: 1rem;
+    position: relative;
+    z-index: 500;
+}
+
+.messageErrorClose {
+    color: var(--color-white) !important;
+    font-weight: 500;
+}
+
+.messageErrorText {
+    font-size: calc(var(--base-font-size) * 1);
+    font-weight: 500;
+}

@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Josefin+Sans:ital@0;1&display=swap');
+
+:root {
+
+    /* Colors */
+    --color-primary: #D84040;
+    --color-secondary: #6c757d;
+    --color-success: #28a745;
+    --color-danger: #8E1616;
+    --color-warning: #ffc107;
+    --color-info: #17a2b8;
+    --color-light: #EEEEEE;
+    --color-dark: #1D1616;
+    --color-white: #fff;
+    --color-black: #000;
+
+    /* Fonts */
+    --base-font-size: 18px;
+
+    /* Adornements */
+    --border-radius: 50px;
+
+    /* Fonts */
+    --font-family: 'Gabarito', sans-serif;
+
+    /* Breakpoints */
+    --bp-sm: "768px";
+    --bp-md: "1024px";
+    --bp-lg: "1280px";
+    --bg-xl: "1536px";
+    --bg-xxl: "1920px";
+}

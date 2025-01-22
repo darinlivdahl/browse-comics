@@ -1,0 +1,26 @@
+.card {
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+.cardTitle {
+    width: 100%;
+    color: var(--color-light);
+    background-color: transparent;
+    padding: .5rem 0;
+    font-size: calc(var(--base-font-size) * .7);
+    line-height: 1.1;
+}
+
+.cardImg {
+    width: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+    .card {
+        margin-bottom: 2rem;
+    }
+    .cardImg {
+        aspect-ratio: 663 / 1024;
+    }
+}

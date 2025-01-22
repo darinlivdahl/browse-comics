@@ -1,0 +1,42 @@
+.btnPrimary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+}
+
+.btnPrimary:hover,
+.btnPrimary:focus {
+    background-color: var(--color-black);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btnSecondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary) !important;
+}
+
+.btnSecondary:hover,
+.btnSecondary:focus {
+    color: var(--color-white);
+    border-color: var(--color-white) !important;
+}   
+
+/* Add the common styles to btnPrimary and btnSecondary */
+.btnPrimary, .btnSecondary {
+    /* TODO: Figure out how to use CSS modules "consumes" property */
+    padding: 8px 20px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    text-rendering: auto;
+    text-transform: uppercase;
+    transition: color 200ms, background-color 400ms, border-color 400ms;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    font-family: var(--font-family);
+    font-size: calc(var(--base-font-size) * .9);
+}
