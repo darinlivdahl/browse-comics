@@ -16,12 +16,8 @@ function SearchArea(props) {
 
     const featuredCreators = [
         {
-            id: 32,
-            name: "Steve Ditko"
-        },
-        {
-            id: 75,
-            name: "Todd McFarlane"
+            id: 61,
+            name: "Jim Steranko"
         },
         {
             id: 1827,
@@ -34,6 +30,14 @@ function SearchArea(props) {
         {
             id: 314,
             name: "Neal Adams"
+        },
+        {
+            id: 32,
+            name: "Steve Ditko"
+        },
+        {
+            id: 75,
+            name: "Todd McFarlane"
         }
     ];
 
@@ -71,7 +75,7 @@ function SearchArea(props) {
             <section className={styles.searchAreaInner}>
                 <Heading style={customStyle} density="compact" level="2" text="Search Comics by Creator" subtext="Search by first name and/or last name." />
                 <form className={styles.searchAreaForm} method="post" onSubmit={handleSearch}>
-                    <fieldset className={styles.searchAreafieldSet}>
+                    <fieldset className={styles.searchAreaFieldSet}>
                         <FormField id="first-name" name="firstName" label="First Name" type="text" onChange={handleChange} placeholder="Sam" setFocus="true" />
                         <FormField id="last-name" name="lastName" label="Last Name" type="text" onChange={handleChange} placeholder="Rosen" />
                         <Button variant="primary" name="searchCreator" text="Search" type="submit" />
@@ -80,7 +84,7 @@ function SearchArea(props) {
 
                 <Heading level="3" text="Featured Creators" />
                 <div className={styles.featuredCreatorsList}>
-                {featuredCreators.map((fc, index) => <FeaturedCreator key={"fc-" + index} creator={fc} onCreatorSelect={handleFeaturedCreatorSelect} />)}
+                {featuredCreators.map(fc => <FeaturedCreator key={"fc-" + fc.id} creator={fc} onCreatorSelect={handleFeaturedCreatorSelect} />)}
                 </div>
             </section>
         </div>

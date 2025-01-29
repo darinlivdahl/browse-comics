@@ -22,11 +22,12 @@
     width: 100%;
 }
 
-.searchAreafieldSet {
+.searchAreaFieldSet {
     display: flex;
-    flex-direction: column;
+    flex-flow: column nowrap;
     align-items: stretch;
-    gap: 1rem;
+    justify-content: space-between;
+    gap: 1rem 0;
 }
 
 .searchAreaFieldSetLegend {
@@ -37,11 +38,37 @@
 
 .featuredCreatorsList {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    flex-flow: column wrap;
     gap: .5rem;
     width: 100%;
     margin-top: 1rem;
+}
+
+@media screen and (min-width: 430px) {
+
+    .searchAreaFieldSet {
+        flex-flow: row wrap;
+        gap: 1rem;
+    }
+    
+    .searchAreaFieldSet > div {
+        flex-basis: 40%;
+        flex-grow: 1;
+    }
+    
+    .searchAreaFieldSet > button {
+        flex-basis: 100%;
+        flex-grow: 2;
+    }
+
+    .featuredCreatorsList {
+        flex-flow: row wrap;
+    }
+
+    .featuredCreatorsList > button {
+        flex-basis: 40%;
+        flex-grow: 1;
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -65,10 +92,15 @@
         width: auto;
     }
 
-    .searchAreafieldSet {
+    .searchAreaFieldSet {
         flex-direction: row;
+        flex-wrap: nowrap;
         align-items: end;
         max-width: 600px;
+    }
+
+    .searchAreaFieldSet > div {
+        flex-basis: auto;
     }
 
     .searchAreaFieldSetLegend {
@@ -76,7 +108,10 @@
     }
 
     .featuredCreatorsList {
-        flex-direction: row;
         gap: 1rem;
+    }
+
+    .featuredCreatorsList > button {
+        flex-basis: 30%;
     }
 }
