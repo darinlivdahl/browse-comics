@@ -7,11 +7,11 @@
     width: 100%;
     color: var(--color-white);
     background-color: var(--color-dark);
-    background-image: var(--bg-img);
+    /* background-image: var(--bg-img);
     background-position-y: 50%;
     background-position-x: center;
     background-repeat: no-repeat;
-    background-blend-mode: darken; /* or multiply */
+    background-blend-mode: darken; */
     box-shadow: 0 0 20px rgba(0, 0, 0, 1);
     z-index: 200;
     position: relative;
