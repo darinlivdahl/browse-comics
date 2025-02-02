@@ -61,6 +61,10 @@
         margin-top: 2.4rem;
     }
 
+    .headingSubText {
+        text-align: left;
+    }
+
     .h1 {
         font-size: calc(var(--base-font-size) * 2.3);
     }
