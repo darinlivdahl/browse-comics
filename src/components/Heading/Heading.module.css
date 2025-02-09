@@ -50,19 +50,9 @@
     }
 }
 
-@media screen and (min-width: 1024px) {
-    .headingSubText {
-        text-align: center;
-    }
-}
-
 @media screen and (min-width: 1280px) {
     .headingContainer {
         margin-top: 2.4rem;
-    }
-
-    .headingSubText {
-        text-align: left;
     }
 
     .h1 {
@@ -86,6 +76,10 @@
     .headingSubText {
         font-size: calc(var(--base-font-size) * 1);
         line-height: 1.5;
+    }
+
+    h2 + .headingSubText {
+        text-align: center;
     }
 
     .h1 {

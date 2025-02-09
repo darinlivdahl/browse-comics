@@ -73,6 +73,11 @@ function App() {
     }
   }
 
+  function setCredit(attribution) {
+    setAttribution(attribution);
+    window.localStorage.setItem('attribution',attribution);
+  }
+
   function handleCreatorSearch(searchName, offsetVal = 0) {
     // console.log('run handleCreatorSearch: Name => ' + searchName.firstName + ' ' + searchName.lastName);
     if (searchName.firstName !== "" || searchName.lastName !== "") {
@@ -93,7 +98,7 @@ function App() {
         // console.log(response);
         const { count, limit, offset, total } = response.data.data;
         setShowSearchNav(true);
-        setAttribution(response.data.attributionHTML);
+        setCredit(response.data.attributionHTML);
         setCreatorSearchPagination({
           count: count,
           limit: limit,
@@ -170,6 +175,7 @@ function App() {
     .then(function (response) {
       // console.log(response);
       setComicCreatorPreviewData(response.data.data.results[0]);
+      setCredit(response.data.attributionHTML);
       setShowCreatorPreview(true);
       setShowComicPreview(false);
     })
@@ -202,7 +208,7 @@ function App() {
     .then(function (response) {
       // console.log(response);
       const { count, limit, offset, total, results } = response.data.data;
-      setAttribution(response.data.attributionHTML);
+      setCredit(response.data.attributionHTML);
       setComicSearchPagination({
         count: count,
         limit: limit,
