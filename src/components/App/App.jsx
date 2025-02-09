@@ -349,9 +349,22 @@ function App() {
     }
   }
 
+  function smoothScroll(selector) {
+    window.setTimeout(function() {
+      const card = document.getElementById(selector);
+      if (card !== null) {
+        card.scrollIntoView({
+          behavior: "smooth"
+        });
+      } else {
+        scrollToResults();
+      }
+    }, 400); //? Is there a better way to call these functions when results state changes
+  }
+
   function handleResultAnchor(context, id) {
     // TODO: Revise or remove this functionality for creator context
-    // console.log('run handleResultAnchor, context => ' + context + ' and id => ' + id);
+
     if (context === "comic") {
       setShowComicResults(true);
       setShowComicPreview(false);
@@ -360,19 +373,11 @@ function App() {
       setShowCreatorPreview(false);
     }
     
-    // TODO: figure out how to do scroll into view after showing results again
-    const card = document.getElementById("card-" + id);
-    if (card !== null) {
-      card.scrollIntoView({
-        behavior: "smooth"
-      });
-    } else {
-      scrollToResults();
-    }
+    // Auto scroll into view functionality
+    smoothScroll("card-" + id);
   }
 
   function handleRelatedCreator(id, name = "") {
-    // console.log('run handleRelatedCreator, id => ' + id + ' and name => ' + name);
     handleCreatorSelect(id, name);
   }
 
