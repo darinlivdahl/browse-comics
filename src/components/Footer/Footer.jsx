@@ -10,7 +10,7 @@ function Footer() {
 
     return (
         <div className={styles.footerContainer}>
-            <span className={styles.footerText}>Designed and Developed by <a href="https://darinlivdahl.co" target="_blank">Darin Livdahl</a> with <span className={styles.iconHeart}>♥</span>. This website is not affiliated with or endorsed by Marvel Entertainment.</span>
+            <span className={styles.footerText}>Designed and developed by <a href="https://darinlivdahl.co" target="_blank">Darin Livdahl</a> with <span className={styles.iconHeart}>♥</span>. This website is not affiliated with or endorsed by Marvel Entertainment.</span>
             <span className={styles.footerText}>{parse(getAttribution())}</span>
         </div>
     );
