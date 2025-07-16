@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import md5 from "js-md5";
 import 'reset-css';
@@ -18,8 +18,11 @@ function App() {
   const BASE_API_ENDPOINT = "https://gateway.marvel.com/v1/public";
 
   const [attribution, setAttribution] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-  const defaultErrorMessage = "Erf! Something went wrong. Please try again.";
+  const [errorMessage, setErrorMessage] = useState({});
+  const defaultErrorMessage = {
+    type: 'ReferenceError',
+    message: 'Erf! Something went wrong. Please try again.'
+  };
   const defaultPagination = {
     count: 0,
     limit: 0,
@@ -125,7 +128,10 @@ function App() {
       });
     } else {
       // console.log("run handleCreatorSearch with empty search");
-      setErrorMessage("Oops! You need to enter a name to search.");
+      setErrorMessage({
+        type: 'ValidationError',
+        message: 'Oops! You need to enter a name to search.'
+      });
     }
   }
 
@@ -180,8 +186,16 @@ function App() {
       setShowComicPreview(false);
     })
     .catch(function (error) {
-        console.error(error);
-        setErrorMessage(defaultErrorMessage);
+        const errorCode = error.response.data.code;
+        if (errorCode === 'ImATeapotError') {
+          // console.log(error.response.data.code);
+          setErrorMessage({
+            type: errorCode,
+            message: 'Wha Wha Whaaa... It appears the Marvel Developer API is down again.'
+          });
+        } else {
+          setErrorMessage(defaultErrorMessage);
+        }
     })
     .finally(function() {
       setCreatorIsLoading(false);
@@ -266,7 +280,7 @@ function App() {
   function resetResultsAndPreview() {
 
     // Clear error if any
-    setErrorMessage("");
+    setErrorMessage({});
 
     // Show Search
     setShowSearchNav(true);
@@ -318,8 +332,16 @@ function App() {
     }
   }
 
-  function handleErrorMessageClose() {
-    setErrorMessage("");
+  function handleErrorMessageClose(type) {
+    // Reset to beginning if Marvel API is down
+    // console.log('run handleErrorMessageClose and type => ' + type);
+    if (type === 'ImATeapotError') {
+      resetResultsAndPreview();
+      setShowSearchNav(false);
+      setShowSearch(true);
+    } else {
+      setErrorMessage({});
+    }
   }
 
   function handleStoredResults(context) {
@@ -327,7 +349,10 @@ function App() {
     const storedResultsArr = JSON.parse(storage);
     resetResultsAndPreview();
     if (storage === null) {
-      setErrorMessage(`Pow! You do not have any stored ${context} at this time. You can store one after selecting one.`)
+      setErrorMessage({
+        type: 'ReferenceError',
+        message: `Pow! You do not have any stored ${context} at this time. You can store one after selecting one.`
+      });
     } else {
       // Set pagination
       const paginationLimit = 20;
@@ -401,7 +426,7 @@ function App() {
         headingText="Browse Comics"
       />
       <main className={styles.appMain}>
-        {(errorMessage !== "") && <Message error={errorMessage} onErrorMessageClose={handleErrorMessageClose} />}
+        {(Object.keys(errorMessage).length !== 0) && <Message error={errorMessage} onErrorMessageClose={handleErrorMessageClose} />}
         {showSearch && <SearchArea onSearch={handleCreatorSearch} onFeaturedCreatorSelect={handleCreatorSelect} />}
         {(creatorSearchIsLoading || comicSearchIsLoading || creatorIsLoading || comicIsLoading) && <Spinner />}        
         {showCreatorResults && <Results
